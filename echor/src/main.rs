@@ -5,14 +5,14 @@ fn main() {
         .version("0.1.0")
         .author("Noritsugu Sugimura <nxsughi@gmail.com>")
         .about("Rust echo")
-        .args(
+        .arg(
             Arg::with_name("text")
                 .value_name("TEXT")
                 .help("Input text")
                 .required(true)
                 .min_values(1),
         )
-        .args(
+        .arg(
             Arg::with_name("omit_newline")
                 .short("n")
                 .help("Do not print newline")
