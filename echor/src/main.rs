@@ -1,7 +1,7 @@
 use clap::{App, Arg};
 
 fn main() {
-    let _matches = App::new("echor")
+    let matches = App::new("echor")
         .version("0.1.0")
         .author("Noritsugu Sugimura <nxsughi@gmail.com>")
         .about("Rust echo")
@@ -20,5 +20,8 @@ fn main() {
         )
         .get_matches();
 
-    println!("{:#?}", _matches);
+    let text = matches.values_of_lossy("text").unwrap();
+    let omit_newline = matches.is_present("omit_newline");
+
+    print!("{}{}", text.join(" "), if omit_newline { "" } else { "\n" });
 }
